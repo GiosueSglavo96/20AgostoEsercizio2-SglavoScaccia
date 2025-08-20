@@ -50,9 +50,11 @@ df_customer = df_customer.merge(avg_monthly_frequency, on='CustomerID', how='lef
 
 # Per ogni cliente riportami il paese di appartenenza
 country = df.groupby('CustomerID')['Country'].first().reset_index()
+# Categorizza le stringhe in interi
+country['Country'] = pd.factorize(country['Country'])[0]
 df_customer = df_customer.merge(country, on='CustomerID', how='left')
 
-#print(df_customer.head(20))
+# print(df_customer.head(20))
 
 # Mi normalizzi i dati in media nulla e varianza unitaria
 
