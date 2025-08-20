@@ -61,9 +61,6 @@ df_customer[['CustomerLifetimeValue', 'TotalPurchases', 'AverageSpent', 'Average
 
 print(df_customer.head(10))
 
-# Mi applichi l'algoritmo K-Means
-
-
 # Applica K-Means
 kmeans = KMeans(n_clusters=3, random_state=42)
 df_customer['Cluster'] = kmeans.fit_predict(df_customer)
@@ -92,3 +89,4 @@ plt.ylabel('Total Purchases')
 plt.title('Customer Segmentation - DBSCAN')
 plt.colorbar(label='Cluster')
 plt.show()
+
